@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Курс "{{ course.title }}" {% endblock %}
+{% block content %}
+    <h1>Курс "{{ course.title }}"</h1>
+    <hr>
+    <ol>
+        {% for lesson in course.lessons.all %}
+            <li>
+                <a href="{% url 'courses:lesson' course.id lesson.id %}">{{ lesson }}</a>
+            </li>
+        {% endfor %}
+    </ol>
+{% endblock %}

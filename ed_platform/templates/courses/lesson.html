@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+    Контент урока
+{% endblock %}
+{% block content %}
+    <h1>Курс "{{ lesson.course.title }}"</h1>
+    <hr>
+    <h2>Урок #{{ lesson.order }} "{{ lesson.title }}"</h2>
+    <article>
+        <a href="{% url 'courses:course' lesson.course.id %}">Назад к списку уроков</a>
+    </article>
+    <article>
+            {{ lesson.content }}
+    </article>
+{% endblock %}
